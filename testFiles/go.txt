@@ -1,0 +1,25 @@
+package main
+
+import (
+	"fmt"
+	"log"
+	"os"
+	"strings"
+)
+
+func readNumbers(startingNumbers string) (int, map[int][2]int) {
+	lastNumber := 0
+	numbersSpoken := make(map[int][2]int)
+	for i, item := range strings.Split(string(startingNumbers), ",") {
+		var number int
+		n, err := fmt.Sscanf(item, "%d", &number)
+		if err != nil || n < 1 {
+			log.Fatal(err)
+		}
+
+		lastNumber = number
+		numbersSpoken[number] = [2]int{i + 1, 0}
+	}
+
+	return lastNumber, numbersSpoken
+}

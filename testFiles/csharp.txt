@@ -1,0 +1,40 @@
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Text;
+using System.Xml;
+using System.Xml.Serialization;
+using Newtonsoft.Json;
+
+namespace PSDText
+{
+    public class PSDText
+    {
+        private readonly string _xmlData;
+        private readonly XmlNamespaceManager _ns = new XmlNamespaceManager(new NameTable());
+        public List<TextData> TextData;
+        private string Readxmpmeta(string path)
+        {
+            var sb = new StringBuilder(1000);
+            using (var sr = new StreamReader(path))
+            {
+                var read = false;
+                while (true)
+                {
+                    var line = sr.ReadLine();
+                    if (string.IsNullOrWhiteSpace(line))
+                        return sb.ToString();
+
+                    if (line.StartsWith("<x:xmpmeta"))
+                        read = true;
+
+                    if (read) sb.Append(line);
+
+                    if (line.StartsWith("</x:xmpmeta>"))
+                        break;
+                }
+            }
+
+            return sb.ToString();
+        }

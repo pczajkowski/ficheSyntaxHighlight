@@ -1,0 +1,28 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int arraySize = 0;
+
+int **readInput(FILE *fp) {
+	int **array = NULL;
+	int index = 0;
+
+	while (1) {
+		if (feof(fp)) break;
+
+		int *p = malloc(sizeof(int));
+		if (!p) return NULL;
+
+		if (1 != fscanf(fp, "%d\n", p))
+			return NULL;
+
+		arraySize++;
+		int **newArray = realloc(array, sizeof(int*)*arraySize);
+		if (!newArray) return NULL;
+		array = newArray;
+		array[index] = p;
+		index++;
+	}
+
+	return array;
+}
