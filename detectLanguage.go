@@ -12,6 +12,7 @@ func init() {
 	checks["c"] = []string{"printf(", "malloc(", "realloc(", "free(", "#include", "#define", "sizeof", "typeof"}
 	checks["go"] = []string{"fmt.", "package ", ":= range", "make(map[", "if err != nil"}
 	checks["csharp"] = []string{"using", "namespace", ".Where(", ".Select(", "public ", "private ", "readonly ", "List<", " async ", "await "}
+	checks["html"] = []string{"html>", "head>", "body>", "title>", "script>", "div>"}
 }
 
 func removeString(array []string, index int) []string {

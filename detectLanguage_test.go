@@ -18,6 +18,7 @@ func init() {
 		{"c", "testFiles/c.txt", 0.4},
 		{"csharp", "testFiles/csharp.txt", 0.6},
 		{"go", "testFiles/go.txt", 0.5},
+		{"html", "testFiles/html.txt", 0.6},
 	}
 }
 
