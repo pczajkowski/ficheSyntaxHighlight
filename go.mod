@@ -1,4 +1,4 @@
-module codeHighlight
+module ficheSyntaxHighlight
 
 go 1.15
 
