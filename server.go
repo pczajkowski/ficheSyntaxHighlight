@@ -122,5 +122,8 @@ func main() {
 
 	hostname := *host + ":" + *port
 	http.HandleFunc("/", serve)
-	log.Fatal(http.ListenAndServe(hostname, nil))
+	err := http.ListenAndServe(hostname, nil)
+	if err != nil {
+		fmt.Println(err)
+	}
 }
