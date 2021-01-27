@@ -1,5 +1,7 @@
 # ficheSyntaxHighlight
 
+[![DeepSource](https://deepsource.io/gh/pczajkowski/ficheSyntaxHighlight.svg/?label=active+issues&show_trend=true)](https://deepsource.io/gh/pczajkowski/ficheSyntaxHighlight/?ref=repository-badge)
+
 I'm using the great [solusipse/fiche](https://github.com/solusipse/fiche). It generates text files, but I want syntax highlighting and line numbers. So I've created this server.
 
 It's using [alecthomas/chroma](https://github.com/alecthomas/chroma) for generating HTML files with syntax highlighting, but language detection is my own creation as chroma's one doesn't detect what I want.
