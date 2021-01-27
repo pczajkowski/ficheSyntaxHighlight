@@ -35,6 +35,9 @@ func createHTML(content string, file *os.File) error {
 
 	formatter := html.New(html.Standalone(true), html.WithLineNumbers(true), html.LinkableLineNumbers(true, ""), html.LineNumbersInTable(true))
 	iterator, err := lexer.Tokenise(nil, content)
+	if err != nil {
+		return fmt.Errorf("Error tokenizing content HTML: %s", err)
+	}
 
 	err = formatter.Format(file, style, iterator)
 	if err != nil {
