@@ -103,7 +103,7 @@ func setLog() *os.File {
 		return nil
 	}
 
-	file, err := os.OpenFile(*logFilePath, os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
+	file, err := os.OpenFile(*logFilePath, os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0600)
 	if err != nil {
 		log.Fatalf("Can't open logs file: %s", err)
 	}
